@@ -1,0 +1,59 @@
+public class stats {
+	static double AverageSum = 0;
+	static double sum = 0;
+
+	public static void average(int x[]) {
+		for (int counter = 0; counter<x.length; counter++) 
+		{ 
+			AverageSum+=x[counter];
+		}
+		    double average = AverageSum/x.length;
+		    System.out.println("The average of your data set is "+ average);
+		}
+	
+	public static void StandardDeviation(int x[]) {
+		for (int counter = 0; counter<x.length; counter++) 
+		{ 
+			sum+=x[counter];
+		}
+		    double avg = sum/x.length;
+		    double variance = 0;
+		    double hold=0;
+		    double strdDeviation=0;
+		    for (int i = 0; i<x.length; i++) 
+		    {
+		    variance += (Math.pow((avg - x[i]),2));
+		    }
+		    hold = variance/(x.length - 1);
+		    strdDeviation = Math.sqrt(hold);
+		    System.out.println("The Standard Deviation of your data set is " + strdDeviation);    
+	}
+	
+	public static void Mode (int x[]) {
+		int maxValue = x[0]; 
+		int maxCount = 0;
+		for (int i = 0; i<x.length; i++) 
+		{
+			int count = 0;
+			for (int j = 0; j<x.length; j++) 
+			{
+				if (x[j] == x[i])
+					count++;
+			}
+			if (count > maxCount) {
+				maxCount = count;
+				maxValue = x[i];
+			}
+		}
+		System.out.println("The mode of your data set is" + " " + maxValue);
+	}
+
+	public static void main(String[] args) {
+		int test[]= {5,6,7,7,10,10,10,15,17,21};
+		{Mode(test);}
+		{StandardDeviation(test);}
+		{average(test);}
+
+	}
+
+}
